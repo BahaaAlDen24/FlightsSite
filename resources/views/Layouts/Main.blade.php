@@ -241,8 +241,8 @@
         </div>
     </div>
 </div>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+@yield('pageJS')
 </body>
 
-<!-- Mirrored from demo.gridgum.com/templates/Travel-agency/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 08:47:35 GMT -->
 </html>

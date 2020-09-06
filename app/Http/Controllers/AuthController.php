@@ -27,7 +27,7 @@ class AuthController extends Controller
     {
         $Access_token = Cache::get('AccessToken');
         if ($Access_token == null){
-            $response =  FlightsConnectionManager::SaveObject("login",$request->all()) ;
+            $response =  FlightsConnectionManager::Login("login",$request->all()) ;
 
             if ($response->getStatusCode() == 200){
                 $response = json_decode($response->getBody()->getContents(), true);
