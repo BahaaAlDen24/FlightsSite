@@ -13,29 +13,29 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home','HomeController@index')->name('Home');
+Route::get('/home','Guest\HomeController@index')->name('Home');
 
 Route::get('/login', function () { return view('Auth/Login'); })->name('login');
 Route::get('/register', function () { return view('Auth/Register'); });
 
-Route::post('/auth/register','AuthController@register');
-Route::post('/auth/login','AuthController@login');
-Route::get('/auth/logout','AuthController@logout');
-Route::get('/FileDownload','FilesController@FileDownload');
+Route::post('/auth/register','Auth\AuthController@register');
+Route::post('/auth/login','Auth\AuthController@login');
+Route::get('/auth/logout','Auth\AuthController@logout');
+Route::get('/FileDownload','Auth\FilesController@FileDownload');
 
-Route::resource('Airline', 'AirlinesController');
-Route::resource('Airplane', 'AirplanesController');
-Route::resource('Airport', 'AirportsController');
-Route::resource('BankAccount', 'BankAccountsController');
-Route::resource('Bank', 'BankController');
-Route::resource('BookedFlight', 'BookedFlightsController');
-Route::resource('CanceledFlight', 'CanceledFlightsController');
-Route::resource('City', 'CitiesController');
-Route::resource('Country', 'CountryController');
-Route::resource('FlightOffer', 'FlightOffersController');
-Route::resource('Flight', 'FlightsController');
-Route::resource('FlightType', 'FlightTypesController');
-Route::resource('Hotel', 'HotelsController');
-Route::resource('Offer', 'OffersController');
-Route::resource('UserProfile', 'UserProfileController');
-Route::resource('User', 'UsersController');
+Route::resource('Airline', 'Admin\AirlinesController');
+Route::resource('Airplane', 'Admin\AirplanesController');
+Route::resource('Airport', 'Admin\AirportsController');
+Route::resource('BankAccount', 'Admin\BankAccountsController');
+Route::resource('Bank', 'Admin\BanksController');
+Route::resource('BookedFlight', 'Admin\BookedFlightsController');
+Route::resource('CanceledFlight', 'Admin\CanceledFlightsController');
+Route::resource('City', 'Admin\CitiesController');
+Route::resource('Country', 'Admin\CountryController');
+Route::resource('FlightOffer', 'Admin\FlightsOffersController');
+Route::resource('Flight', 'Admin\FlightsController');
+Route::resource('FlightType', 'Admin\FlightsTypesController');
+Route::resource('Hotel', 'Admin\HotelsController');
+Route::resource('Offer', 'Admin\OffersController');
+Route::resource('UserProfile', 'Admin\UserProfileController');
+Route::resource('User', 'Admin\UsersController');

@@ -1,11 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 
 use App\FlightsConnectionManager;
 use App\Http\Controllers\Controller;
+use http\Exception\RuntimeException;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -31,6 +32,8 @@ class CountryController extends Controller
         $Object = FlightsConnectionManager::GetObject('Country',$id) ;
         $data = json_decode($Object->getBody(),true);
 
+        FilesController::DeleteDirctory("Country",$id) ;
+
         if ($data['IMGSRC1'] != ""){
             FilesController::FileDownload2($data['IMGSRC1'],$id,"Country","IMGSRC1") ;
         }
@@ -49,8 +52,12 @@ class CountryController extends Controller
 
     public function update(Request $request,$id)
     {
-        $response =  FlightsConnectionManager::UpdateObject("Country",$id,$request->all()) ;
-        return $response->getBody() ;;
+        try{
+            $response =  FlightsConnectionManager::UpdateObjectWithPics("Country",$id,$request) ;
+            return $response->getBody() ;
+        }catch (RuntimeException  $exception){
+            throw $exception ;
+        }
     }
 
     public function destroy($id)

@@ -41,19 +41,19 @@
                 <a href="#">Dashboard</a><i class="fa fa-circle"></i>
             </li>
             <li class="active">
-                Countries
+                Airplanes
             </li>
         </ul>
         <!-- END PAGE BREADCRUMB -->
         <!-- BEGIN PAGE CONTENT INNER -->
         <div class="row">
             <div class="col-md-12">
-            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-cogs font-green-sharp"></i>
-                            <span class="caption-subject font-green-sharp bold uppercase">Countries Table</span>
+                            <span class="caption-subject font-green-sharp bold uppercase">Airplanes Table</span>
                         </div>
                         <div class="actions btn-set">
                             <button id="btnNew" class="btn green-haze btn-circle"><i class="fa fa-check"></i> Add</button>
@@ -66,8 +66,8 @@
                                 <th class="table-checkbox">
                                     <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes"/>
                                 </th>
-                                <th>Country Name</th>
-                                <th>Country Code</th>
+                                <th>Airplane Name</th>
+                                <th>Airplane Code</th>
                                 <th>Created Date</th>
                                 <th>Last Update Date</th>
                                 <th>Actions</th>
@@ -88,8 +88,8 @@
                                             <a onclick='View({{$Object->id}})'><span class="btn btn-circle btn-warning"><i class="fa fa-check-circle"></i> View</span></a>
                                         </td>
                                     </tr>
-                                 @endforeach
-                             @endif
+                                @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -151,7 +151,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Country Code<span class="required">*</span></label>
+                                            <label class="col-md-3 control-label">Airplane Code<span class="required">*</span></label>
                                             <div class="col-md-9">
                                                 <select id="CODE" name="CODE" class="form-control">
                                                     <option value="AF">Afghanistan</option>
@@ -524,16 +524,16 @@
                                                         <div id="myCarousel" class="carousel image-carousel slide">
                                                             <div class="carousel-inner">
                                                                 <div class="active item">
-                                                                    <img id="Img1" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img1" src="{{asset('assets/DownloadedFiles/Airplane/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img2" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img2" src="{{asset('assets/DownloadedFiles/Airplane/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img3" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img3" src="{{asset('assets/DownloadedFiles/Airplane/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img4" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img4" src="{{asset('assets/DownloadedFiles/Airplane/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                             </div>
                                                             <!-- Carousel nav -->
@@ -586,8 +586,8 @@
                                                     <div class="col-md-3">
                                                         <h3 style="margin-top:0">News Feeds</h3>
                                                         <div class="top-news">
-                                                            <a href="javascript:;" class="btn green"><span>Country Name   </span><span id="ViewPageName"></span><i class="fa fa-music top-news-icon"></i></a>
-                                                            <a href="javascript:;" class="btn yellow"><span>Country Code  </span><span id="ViewPageCode"></span><i class="fa fa-book top-news-icon"></i></a>
+                                                            <a href="javascript:;" class="btn green"><span>Airplane Name   </span><span id="ViewPageName"></span><i class="fa fa-music top-news-icon"></i></a>
+                                                            <a href="javascript:;" class="btn yellow"><span>Airplane Code  </span><span id="ViewPageCode"></span><i class="fa fa-book top-news-icon"></i></a>
                                                             <a href="javascript:;" class="btn red"><span>Created Date  </span><span id="ViewPageCreatedDate"></span><i class="fa fa-briefcase top-news-icon"></i></a>
                                                             <a href="javascript:;" class="btn blue"><span>Last Updated Date  </span><span id="ViewPageUpdatedDate"></span><i class="fa fa-globe top-news-icon"></i></a>
                                                         </div>
@@ -608,8 +608,8 @@
                     <!-- /.modal-dialog -->
                 </div>
             </div>
-         </div>
-     </div>
+        </div>
+    </div>
     <!-- END PAGE CONTENT INNER -->
 @endsection
 
@@ -623,8 +623,6 @@
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script src="{{asset('assets/AdminPanel/admin/pages/scripts/ui-toastr.js')}}"></script>
-    <script src="{{asset('assets/AdminPanel/admin/pages/scripts/components-form-tools.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/fuelux/js/spinner.min.js')}}"></script>
 
     <script type="text/javascript">
         var Mode = "" ;
@@ -649,7 +647,7 @@
                 }
             });
             $('#btnNew').click(function () {
-
+                debugger
                 Mode = "New" ;
 
                 ClearDiv() ;
@@ -660,7 +658,7 @@
         });
 
         $('#ObjectsForm').on('submit', function (event) {
-
+            debugger
             event.preventDefault();
             var test = new FormData($(this)[0]) ;
             test.append('_method', 'PUT');
@@ -668,14 +666,14 @@
                 $('#CreateNew').modal('hide');
                 $('#Loading').modal('show');
                 $.ajax({
-                    url: "{{ route('Country.store') }}",
+                    url: "{{ route('Airplane.store') }}",
                     method :"POST" ,
                     data: new FormData(this),
                     contentType: false ,
                     cache : false ,
                     processData: false,
                     success: function (data) {
-
+                        debugger
                         data = JSON.parse(data) ;
                         var NewRow = '<tr id="tr' + data.id + '" class="odd gradeX">' +
                             '             <td><input type="checkbox" class="checkboxes" value="1"/></td>\n' +
@@ -689,7 +687,7 @@
                             '                 <a onclick=\'View(' + data.id +')\'><span class="btn btn-circle btn-warning"><i class="fa fa-check-circle"></i> View</span></a>\n' +
                             '             </td>' +
                             '          </tr>';
-
+                        debugger
 
                         $('#sample_1').DataTable().destroy();
                         $("#sample_1").append(NewRow);
@@ -707,16 +705,16 @@
                 $('#CreateNew').modal('hide');
                 $('#Loading').modal('show');
                 $.ajax({
-                    url: "/Country/" + HtmlId.value ,
+                    url: "/Airplane/" + HtmlId.value ,
                     method :"POST" ,
                     data: test,
                     contentType: false ,
                     cache : false ,
                     processData: false,
                     success: function (data) {
-
+                        debugger
                         $('#CreateNew').modal('hide');
-                        data = JSON.parse(data) ;
+
                         $("#ANAME"+ data.id).html(data.ANAME) ;
                         $("#ENAME"+ data.id).html(data.ENAME) ;
                         $("#ADESCRIPTION"+ data.id).html(data.ADESCRIPTION) ;
@@ -738,8 +736,8 @@
             ClearDiv() ;
             $('#ModalTitle').html("Update Item Form");
             $('#Loading').modal('show');
-            $.get('/Country/' + id , function (data) {
-
+            $.get('/Airplane/' + id , function (data) {
+                debugger
                 var MyData = $.parseJSON(data);
                 HtmlId.value = MyData.id ;
                 ANAME.value = MyData.ANAME ;
@@ -748,10 +746,10 @@
                 EDESCRIPTION.value = MyData.EDESCRIPTION ;
                 CODE.value = MyData.CODE ;
 
-                $('#thumbnail1').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC1.jpg>') ;
-                $('#thumbnail2').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC2.jpg>') ;
-                $('#thumbnail3').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC3.jpg>') ;
-                $('#thumbnail4').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC4.jpg>') ;
+                $('#thumbnail1').append('<img src={{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC1.jpg>') ;
+                $('#thumbnail2').append('<img src={{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC2.jpg>') ;
+                $('#thumbnail3').append('<img src={{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC3.jpg>') ;
+                $('#thumbnail4').append('<img src={{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC4.jpg>') ;
 
                 $('#CreateNew').modal('show');
                 $('#Loading').modal('hide');
@@ -761,10 +759,10 @@
         function Delete(id){
             $('#Loading').modal('show');
             $.ajax({
-                url: '/Country/' + id ,
+                url: '/Airplane/' + id ,
                 type: 'DELETE',
                 success: function(data) {
-
+                    debugger
                     $("#tr"+ id).remove() ;
                     $('#Loading').modal('hide');
                     toastr.error("Operation has been done successfully", "Deleted successfully");
@@ -776,7 +774,7 @@
             });
         }
         function View(id){
-
+            debugger
             $('#Loading').modal('show');
             $("#ViewPageDesc").text('') ;
             $("#ViewPageName").text('') ;
@@ -784,8 +782,8 @@
             $("#ViewPageCreatedDate").text('') ;
             $("#ViewPageUpdatedDate").text('') ;
 
-            $.get('/Country/' + id , function (data) {
-
+            $.get('/Airplane/' + id , function (data) {
+                debugger
                 var MyData = $.parseJSON(data);
 
                 $("#ViewPageDesc").text(MyData.EDESCRIPTION) ;
@@ -794,10 +792,10 @@
                 $("#ViewPageCreatedDate").text(MyData.CREATED_AT) ;
                 $("#ViewPageUpdatedDate").text(MyData.UPDATED_AT) ;
 
-                $("#Img1").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC1.jpg');
-                $("#Img2").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC2.jpg');
-                $("#Img3").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC3.jpg');
-                $("#Img4").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC4.jpg');
+                $("#Img1").attr('src','{{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC1.jpg');
+                $("#Img2").attr('src','{{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC2.jpg');
+                $("#Img3").attr('src','{{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC3.jpg');
+                $("#Img4").attr('src','{{asset('assets/DownloadedFiles/Airplane/')}}/' + id + '/IMGSRC4.jpg');
 
                 $('#Loading').modal('hide');
                 $('#ItemInfo').modal('show');
@@ -810,7 +808,6 @@
             $('#sample_1').DataTable().destroy();
             $('#sample_1').DataTable().draw();
             UIToastr.init();
-            ComponentsFormTools.init();
         });
     </script>
 @endsection

@@ -437,21 +437,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="row">
                                         <div class="col-md-12">
                                             <ul class="mega-menu-submenu">
-                                                <li>
-                                                    <a href="ecommerce_index.html" class="iconify">
-                                                        <i class="icon-home"></i>
-                                                        Active Filghts </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ecommerce_orders.html" class="iconify">
-                                                        <i class="icon-basket"></i>
-                                                        Booked Flights </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ecommerce_orders_view.html" class="iconify">
-                                                        <i class="icon-tag"></i>
-                                                        Canceled Flights </a>
-                                                </li>
+                                                <li><a href="{{ route('Flight.index') }}" class="iconify"><i class="icon-home"></i>Active Filghts </a></li>
+                                                <li><a href="{{ route('BookedFlight.index') }}" class="iconify"><i class="icon-basket"></i>Booked Flights </a></li>
+                                                <li><a href="{{ route('CanceledFlight.index') }}" class="iconify"><i class="icon-tag"></i>Canceled Flights </a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -469,47 +457,28 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="row">
                                         <div class="col-md-4">
                                             <ul class="mega-menu-submenu">
-                                                <li>
-                                                    <h3>Places</h3>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_general.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Countries </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_buttons.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Cities </a>
-                                                </li>
+                                                <li><h3>Places</h3></li>
+                                                <li><a href="{{ route('Country.index') }}"><i class="fa fa-angle-right"></i>Countries </a></li>
+                                                <li><a href="{{ route('City.index') }}"><i class="fa fa-angle-right"></i>Cities </a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
                                             <ul class="mega-menu-submenu">
-                                                <li>
-                                                    <h3>Flights Components</h3>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_toastr.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Ailines </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_alert_dialog_api.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Airplanes </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_session_timeout.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Airports </a>
-                                                </li>
+                                                <li><h3>Flights Components</h3></li>
+                                                <li><a href="{{ route('Airline.index') }}"><i class="fa fa-angle-right"></i>Ailines </a></li>
+                                                <li><a href="{{ route('Airplane.index') }}"><i class="fa fa-angle-right"></i>Airplanes </a></li>
+                                                <li><a href="{{ route('Airport.index') }}"><i class="fa fa-angle-right"></i>Airports </a></li>
+                                                <li><a href="{{ route('FlightType.index') }}"><i class="fa fa-angle-right"></i>Flights Types </a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
                                             <ul class="mega-menu-submenu">
                                                 <li><h3>Hotels</h3></li>
-                                                <li><a href="form_controls_md.html"><i class="fa fa-angle-right"></i>Hotels</a></li>
+                                                <li><a href="{{ route('Hotel.index') }}"><i class="fa fa-angle-right"></i>Hotels</a></li>
+                                            </ul>
+                                            <ul class="mega-menu-submenu">
+                                                <li><h3>Offers</h3></li>
+                                                <li><a href="{{ route('Offer.index') }}"><i class="fa fa-angle-right"></i>Offers</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -527,36 +496,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="row">
                                         <div class="col-md-6">
                                             <ul class="mega-menu-submenu">
-                                                <li>
-                                                    <h3>Users</h3>
-                                                </li>
-                                                <li>
-                                                    <a href="page_timeline.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Users </a>
-                                                </li>
-                                                <li>
-                                                    <a href="extra_profile.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Users Profiles </a>
-                                                </li>
+                                                <li><h3>Users</h3></li>
+                                                <li><a href="{{ route('User.index') }}"><i class="fa fa-angle-right"></i>Users </a></li>
+                                                <li><a href="{{ route('UserProfile.index') }}"><i class="fa fa-angle-right"></i>Users Profiles </a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
                                             <ul class="mega-menu-submenu">
-                                                <li>
-                                                    <h3>Banks</h3>
-                                                </li>
-                                                <li>
-                                                    <a href="extra_faq.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Banks</a>
-                                                </li>
-                                                <li>
-                                                    <a href="extra_faq.html">
-                                                        <i class="fa fa-angle-right"></i>
-                                                        Banks Accounts </a>
-                                                </li>
+                                                <li><h3>Banks</h3></li>
+                                                <li><a href="{{ route('Bank.index') }}"><i class="fa fa-angle-right"></i>Banks</a></li>
+                                                <li><a href="{{ route('BankAccount.index') }}"><i class="fa fa-angle-right"></i>Banks Accounts </a></li>
                                             </ul>
                                         </div>
                                     </div>

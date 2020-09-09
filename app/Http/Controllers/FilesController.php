@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\FlightsConnectionManager;
+use http\Exception\RuntimeException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class FilesController extends Controller
@@ -46,8 +48,17 @@ class FilesController extends Controller
 
         Storage::disk('MyPath')->put("assets/DownloadedFiles/" . $ObjectType ."/". $id . "/" . $FileName , $stringBody);
 
-        $file = storage_path("DownloadedFiles/" . $ObjectType ."/". $id . "/" ) . $FileName;
 
+    }
+
+
+    public static function  DeleteDirctory($ObjectType,$id){
+        try{
+            $Result = File::deleteDirectory(public_path("assets/DownloadedFiles/" . $ObjectType ."/". $id ));
+            return $Result ;
+        }catch (RuntimeException $exception){
+            throw  $exception ;
+        }
     }
 
 }

@@ -41,19 +41,19 @@
                 <a href="#">Dashboard</a><i class="fa fa-circle"></i>
             </li>
             <li class="active">
-                Countries
+                Flight Types
             </li>
         </ul>
         <!-- END PAGE BREADCRUMB -->
         <!-- BEGIN PAGE CONTENT INNER -->
         <div class="row">
             <div class="col-md-12">
-            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
                 <div class="portlet light">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-cogs font-green-sharp"></i>
-                            <span class="caption-subject font-green-sharp bold uppercase">Countries Table</span>
+                            <span class="caption-subject font-green-sharp bold uppercase">Flight Types Table</span>
                         </div>
                         <div class="actions btn-set">
                             <button id="btnNew" class="btn green-haze btn-circle"><i class="fa fa-check"></i> Add</button>
@@ -66,8 +66,8 @@
                                 <th class="table-checkbox">
                                     <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes"/>
                                 </th>
-                                <th>Country Name</th>
-                                <th>Country Code</th>
+                                <th>Flight Type Name</th>
+                                <th>Description</th>
                                 <th>Created Date</th>
                                 <th>Last Update Date</th>
                                 <th>Actions</th>
@@ -79,7 +79,7 @@
                                     <tr id="{{"tr" . $Object->id}}" class="odd gradeX">
                                         <td><input type="checkbox" class="checkboxes" value="1"/></td>
                                         <td id="{{"ENAME" . $Object->id}}">{{$Object->ENAME}}</td>
-                                        <td id="{{"CODE" . $Object->id}}">{{$Object->CODE}}</td>
+                                        <td id="{{"EDESCRIPTION" . $Object->id}}">{{$Object->EDESCRIPTION}}</td>
                                         <td id="{{"CDATE" . $Object->id}}">{{$Object->CREATED_AT}}</td>
                                         <td id="{{"UDATE" . $Object->id}}">{{$Object->UPDATED_AT}}</td>
                                         <td>
@@ -88,8 +88,8 @@
                                             <a onclick='View({{$Object->id}})'><span class="btn btn-circle btn-warning"><i class="fa fa-check-circle"></i> View</span></a>
                                         </td>
                                     </tr>
-                                 @endforeach
-                             @endif
+                                @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -148,262 +148,6 @@
                                             <label class="col-md-3 control-label">English Description<span class="required">*</span></label>
                                             <div class="col-md-9">
                                                 <textarea type="text" id="EDESCRIPTION" name="EDESCRIPTION" class="form-control"rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Country Code<span class="required">*</span></label>
-                                            <div class="col-md-9">
-                                                <select id="CODE" name="CODE" class="form-control">
-                                                    <option value="AF">Afghanistan</option>
-                                                    <option value="AX">Åland Islands</option>
-                                                    <option value="AL">Albania</option>
-                                                    <option value="DZ">Algeria</option>
-                                                    <option value="AS">American Samoa</option>
-                                                    <option value="AD">Andorra</option>
-                                                    <option value="AO">Angola</option>
-                                                    <option value="AI">Anguilla</option>
-                                                    <option value="AQ">Antarctica</option>
-                                                    <option value="AG">Antigua and Barbuda</option>
-                                                    <option value="AR">Argentina</option>
-                                                    <option value="AM">Armenia</option>
-                                                    <option value="AW">Aruba</option>
-                                                    <option value="AU">Australia</option>
-                                                    <option value="AT">Austria</option>
-                                                    <option value="AZ">Azerbaijan</option>
-                                                    <option value="BS">Bahamas</option>
-                                                    <option value="BH">Bahrain</option>
-                                                    <option value="BD">Bangladesh</option>
-                                                    <option value="BB">Barbados</option>
-                                                    <option value="BY">Belarus</option>
-                                                    <option value="BE">Belgium</option>
-                                                    <option value="BZ">Belize</option>
-                                                    <option value="BJ">Benin</option>
-                                                    <option value="BM">Bermuda</option>
-                                                    <option value="BT">Bhutan</option>
-                                                    <option value="BO">Bolivia, Plurinational State of</option>
-                                                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                                                    <option value="BA">Bosnia and Herzegovina</option>
-                                                    <option value="BW">Botswana</option>
-                                                    <option value="BV">Bouvet Island</option>
-                                                    <option value="BR">Brazil</option>
-                                                    <option value="IO">British Indian Ocean Territory</option>
-                                                    <option value="BN">Brunei Darussalam</option>
-                                                    <option value="BG">Bulgaria</option>
-                                                    <option value="BF">Burkina Faso</option>
-                                                    <option value="BI">Burundi</option>
-                                                    <option value="KH">Cambodia</option>
-                                                    <option value="CM">Cameroon</option>
-                                                    <option value="CA">Canada</option>
-                                                    <option value="CV">Cape Verde</option>
-                                                    <option value="KY">Cayman Islands</option>
-                                                    <option value="CF">Central African Republic</option>
-                                                    <option value="TD">Chad</option>
-                                                    <option value="CL">Chile</option>
-                                                    <option value="CN">China</option>
-                                                    <option value="CX">Christmas Island</option>
-                                                    <option value="CC">Cocos (Keeling) Islands</option>
-                                                    <option value="CO">Colombia</option>
-                                                    <option value="KM">Comoros</option>
-                                                    <option value="CG">Congo</option>
-                                                    <option value="CD">Congo, the Democratic Republic of the</option>
-                                                    <option value="CK">Cook Islands</option>
-                                                    <option value="CR">Costa Rica</option>
-                                                    <option value="CI">Côte d'Ivoire</option>
-                                                    <option value="HR">Croatia</option>
-                                                    <option value="CU">Cuba</option>
-                                                    <option value="CW">Curaçao</option>
-                                                    <option value="CY">Cyprus</option>
-                                                    <option value="CZ">Czech Republic</option>
-                                                    <option value="DK">Denmark</option>
-                                                    <option value="DJ">Djibouti</option>
-                                                    <option value="DM">Dominica</option>
-                                                    <option value="DO">Dominican Republic</option>
-                                                    <option value="EC">Ecuador</option>
-                                                    <option value="EG">Egypt</option>
-                                                    <option value="SV">El Salvador</option>
-                                                    <option value="GQ">Equatorial Guinea</option>
-                                                    <option value="ER">Eritrea</option>
-                                                    <option value="EE">Estonia</option>
-                                                    <option value="ET">Ethiopia</option>
-                                                    <option value="FK">Falkland Islands (Malvinas)</option>
-                                                    <option value="FO">Faroe Islands</option>
-                                                    <option value="FJ">Fiji</option>
-                                                    <option value="FI">Finland</option>
-                                                    <option value="FR">France</option>
-                                                    <option value="GF">French Guiana</option>
-                                                    <option value="PF">French Polynesia</option>
-                                                    <option value="TF">French Southern Territories</option>
-                                                    <option value="GA">Gabon</option>
-                                                    <option value="GM">Gambia</option>
-                                                    <option value="GE">Georgia</option>
-                                                    <option value="DE">Germany</option>
-                                                    <option value="GH">Ghana</option>
-                                                    <option value="GI">Gibraltar</option>
-                                                    <option value="GR">Greece</option>
-                                                    <option value="GL">Greenland</option>
-                                                    <option value="GD">Grenada</option>
-                                                    <option value="GP">Guadeloupe</option>
-                                                    <option value="GU">Guam</option>
-                                                    <option value="GT">Guatemala</option>
-                                                    <option value="GG">Guernsey</option>
-                                                    <option value="GN">Guinea</option>
-                                                    <option value="GW">Guinea-Bissau</option>
-                                                    <option value="GY">Guyana</option>
-                                                    <option value="HT">Haiti</option>
-                                                    <option value="HM">Heard Island and McDonald Islands</option>
-                                                    <option value="VA">Holy See (Vatican City State)</option>
-                                                    <option value="HN">Honduras</option>
-                                                    <option value="HK">Hong Kong</option>
-                                                    <option value="HU">Hungary</option>
-                                                    <option value="IS">Iceland</option>
-                                                    <option value="IN">India</option>
-                                                    <option value="ID">Indonesia</option>
-                                                    <option value="IR">Iran, Islamic Republic of</option>
-                                                    <option value="IQ">Iraq</option>
-                                                    <option value="IE">Ireland</option>
-                                                    <option value="IM">Isle of Man</option>
-                                                    <option value="IL">Israel</option>
-                                                    <option value="IT">Italy</option>
-                                                    <option value="JM">Jamaica</option>
-                                                    <option value="JP">Japan</option>
-                                                    <option value="JE">Jersey</option>
-                                                    <option value="JO">Jordan</option>
-                                                    <option value="KZ">Kazakhstan</option>
-                                                    <option value="KE">Kenya</option>
-                                                    <option value="KI">Kiribati</option>
-                                                    <option value="KP">Korea, Democratic People's Republic of</option>
-                                                    <option value="KR">Korea, Republic of</option>
-                                                    <option value="KW">Kuwait</option>
-                                                    <option value="KG">Kyrgyzstan</option>
-                                                    <option value="LA">Lao People's Democratic Republic</option>
-                                                    <option value="LV">Latvia</option>
-                                                    <option value="LB">Lebanon</option>
-                                                    <option value="LS">Lesotho</option>
-                                                    <option value="LR">Liberia</option>
-                                                    <option value="LY">Libya</option>
-                                                    <option value="LI">Liechtenstein</option>
-                                                    <option value="LT">Lithuania</option>
-                                                    <option value="LU">Luxembourg</option>
-                                                    <option value="MO">Macao</option>
-                                                    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-                                                    <option value="MG">Madagascar</option>
-                                                    <option value="MW">Malawi</option>
-                                                    <option value="MY">Malaysia</option>
-                                                    <option value="MV">Maldives</option>
-                                                    <option value="ML">Mali</option>
-                                                    <option value="MT">Malta</option>
-                                                    <option value="MH">Marshall Islands</option>
-                                                    <option value="MQ">Martinique</option>
-                                                    <option value="MR">Mauritania</option>
-                                                    <option value="MU">Mauritius</option>
-                                                    <option value="YT">Mayotte</option>
-                                                    <option value="MX">Mexico</option>
-                                                    <option value="FM">Micronesia, Federated States of</option>
-                                                    <option value="MD">Moldova, Republic of</option>
-                                                    <option value="MC">Monaco</option>
-                                                    <option value="MN">Mongolia</option>
-                                                    <option value="ME">Montenegro</option>
-                                                    <option value="MS">Montserrat</option>
-                                                    <option value="MA">Morocco</option>
-                                                    <option value="MZ">Mozambique</option>
-                                                    <option value="MM">Myanmar</option>
-                                                    <option value="NA">Namibia</option>
-                                                    <option value="NR">Nauru</option>
-                                                    <option value="NP">Nepal</option>
-                                                    <option value="NL">Netherlands</option>
-                                                    <option value="NC">New Caledonia</option>
-                                                    <option value="NZ">New Zealand</option>
-                                                    <option value="NI">Nicaragua</option>
-                                                    <option value="NE">Niger</option>
-                                                    <option value="NG">Nigeria</option>
-                                                    <option value="NU">Niue</option>
-                                                    <option value="NF">Norfolk Island</option>
-                                                    <option value="MP">Northern Mariana Islands</option>
-                                                    <option value="NO">Norway</option>
-                                                    <option value="OM">Oman</option>
-                                                    <option value="PK">Pakistan</option>
-                                                    <option value="PW">Palau</option>
-                                                    <option value="PS">Palestinian Territory, Occupied</option>
-                                                    <option value="PA">Panama</option>
-                                                    <option value="PG">Papua New Guinea</option>
-                                                    <option value="PY">Paraguay</option>
-                                                    <option value="PE">Peru</option>
-                                                    <option value="PH">Philippines</option>
-                                                    <option value="PN">Pitcairn</option>
-                                                    <option value="PL">Poland</option>
-                                                    <option value="PT">Portugal</option>
-                                                    <option value="PR">Puerto Rico</option>
-                                                    <option value="QA">Qatar</option>
-                                                    <option value="RE">Réunion</option>
-                                                    <option value="RO">Romania</option>
-                                                    <option value="RU">Russian Federation</option>
-                                                    <option value="RW">Rwanda</option>
-                                                    <option value="BL">Saint Barthélemy</option>
-                                                    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-                                                    <option value="KN">Saint Kitts and Nevis</option>
-                                                    <option value="LC">Saint Lucia</option>
-                                                    <option value="MF">Saint Martin (French part)</option>
-                                                    <option value="PM">Saint Pierre and Miquelon</option>
-                                                    <option value="VC">Saint Vincent and the Grenadines</option>
-                                                    <option value="WS">Samoa</option>
-                                                    <option value="SM">San Marino</option>
-                                                    <option value="ST">Sao Tome and Principe</option>
-                                                    <option value="SA">Saudi Arabia</option>
-                                                    <option value="SN">Senegal</option>
-                                                    <option value="RS">Serbia</option>
-                                                    <option value="SC">Seychelles</option>
-                                                    <option value="SL">Sierra Leone</option>
-                                                    <option value="SG">Singapore</option>
-                                                    <option value="SX">Sint Maarten (Dutch part)</option>
-                                                    <option value="SK">Slovakia</option>
-                                                    <option value="SI">Slovenia</option>
-                                                    <option value="SB">Solomon Islands</option>
-                                                    <option value="SO">Somalia</option>
-                                                    <option value="ZA">South Africa</option>
-                                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
-                                                    <option value="SS">South Sudan</option>
-                                                    <option value="ES">Spain</option>
-                                                    <option value="LK">Sri Lanka</option>
-                                                    <option value="SD">Sudan</option>
-                                                    <option value="SR">Suriname</option>
-                                                    <option value="SJ">Svalbard and Jan Mayen</option>
-                                                    <option value="SZ">Swaziland</option>
-                                                    <option value="SE">Sweden</option>
-                                                    <option value="CH">Switzerland</option>
-                                                    <option value="SY">Syrian Arab Republic</option>
-                                                    <option value="TW">Taiwan, Province of China</option>
-                                                    <option value="TJ">Tajikistan</option>
-                                                    <option value="TZ">Tanzania, United Republic of</option>
-                                                    <option value="TH">Thailand</option>
-                                                    <option value="TL">Timor-Leste</option>
-                                                    <option value="TG">Togo</option>
-                                                    <option value="TK">Tokelau</option>
-                                                    <option value="TO">Tonga</option>
-                                                    <option value="TT">Trinidad and Tobago</option>
-                                                    <option value="TN">Tunisia</option>
-                                                    <option value="TR">Turkey</option>
-                                                    <option value="TM">Turkmenistan</option>
-                                                    <option value="TC">Turks and Caicos Islands</option>
-                                                    <option value="TV">Tuvalu</option>
-                                                    <option value="UG">Uganda</option>
-                                                    <option value="UA">Ukraine</option>
-                                                    <option value="AE">United Arab Emirates</option>
-                                                    <option value="GB">United Kingdom</option>
-                                                    <option value="US">United States</option>
-                                                    <option value="UM">United States Minor Outlying Islands</option>
-                                                    <option value="UY">Uruguay</option>
-                                                    <option value="UZ">Uzbekistan</option>
-                                                    <option value="VU">Vanuatu</option>
-                                                    <option value="VE">Venezuela, Bolivarian Republic of</option>
-                                                    <option value="VN">Viet Nam</option>
-                                                    <option value="VG">Virgin Islands, British</option>
-                                                    <option value="VI">Virgin Islands, U.S.</option>
-                                                    <option value="WF">Wallis and Futuna</option>
-                                                    <option value="EH">Western Sahara</option>
-                                                    <option value="YE">Yemen</option>
-                                                    <option value="ZM">Zambia</option>
-                                                    <option value="ZW">Zimbabwe</option>
-                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group ">
@@ -524,16 +268,16 @@
                                                         <div id="myCarousel" class="carousel image-carousel slide">
                                                             <div class="carousel-inner">
                                                                 <div class="active item">
-                                                                    <img id="Img1" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img1" src="{{asset('assets/DownloadedFiles/FlightType/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img2" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img2" src="{{asset('assets/DownloadedFiles/FlightType/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img3" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img3" src="{{asset('assets/DownloadedFiles/FlightType/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="item">
-                                                                    <img id="Img4" src="{{asset('assets/DownloadedFiles/Country/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
+                                                                    <img id="Img4" src="{{asset('assets/DownloadedFiles/FlightType/37/') . "/IMGSRC1.jpg"}}" class="img-responsive" alt="">
                                                                 </div>
                                                             </div>
                                                             <!-- Carousel nav -->
@@ -586,8 +330,7 @@
                                                     <div class="col-md-3">
                                                         <h3 style="margin-top:0">News Feeds</h3>
                                                         <div class="top-news">
-                                                            <a href="javascript:;" class="btn green"><span>Country Name   </span><span id="ViewPageName"></span><i class="fa fa-music top-news-icon"></i></a>
-                                                            <a href="javascript:;" class="btn yellow"><span>Country Code  </span><span id="ViewPageCode"></span><i class="fa fa-book top-news-icon"></i></a>
+                                                            <a href="javascript:;" class="btn green"><span>Flight Type Name   </span><span id="ViewPageName"></span><i class="fa fa-music top-news-icon"></i></a>
                                                             <a href="javascript:;" class="btn red"><span>Created Date  </span><span id="ViewPageCreatedDate"></span><i class="fa fa-briefcase top-news-icon"></i></a>
                                                             <a href="javascript:;" class="btn blue"><span>Last Updated Date  </span><span id="ViewPageUpdatedDate"></span><i class="fa fa-globe top-news-icon"></i></a>
                                                         </div>
@@ -608,8 +351,8 @@
                     <!-- /.modal-dialog -->
                 </div>
             </div>
-         </div>
-     </div>
+        </div>
+    </div>
     <!-- END PAGE CONTENT INNER -->
 @endsection
 
@@ -623,8 +366,6 @@
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <script src="{{asset('assets/AdminPanel/admin/pages/scripts/ui-toastr.js')}}"></script>
-    <script src="{{asset('assets/AdminPanel/admin/pages/scripts/components-form-tools.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/fuelux/js/spinner.min.js')}}"></script>
 
     <script type="text/javascript">
         var Mode = "" ;
@@ -635,7 +376,7 @@
             ENAME.value = "" ;
             ADESCRIPTION.value = "" ;
             EDESCRIPTION.value = "" ;
-            CODE.value = "" ;
+
             $('#thumbnail1').empty() ;
             $('#thumbnail2').empty() ;
             $('#thumbnail3').empty() ;
@@ -649,7 +390,7 @@
                 }
             });
             $('#btnNew').click(function () {
-
+                debugger
                 Mode = "New" ;
 
                 ClearDiv() ;
@@ -660,7 +401,7 @@
         });
 
         $('#ObjectsForm').on('submit', function (event) {
-
+            debugger
             event.preventDefault();
             var test = new FormData($(this)[0]) ;
             test.append('_method', 'PUT');
@@ -668,19 +409,19 @@
                 $('#CreateNew').modal('hide');
                 $('#Loading').modal('show');
                 $.ajax({
-                    url: "{{ route('Country.store') }}",
+                    url: "{{ route('FlightType.store') }}",
                     method :"POST" ,
                     data: new FormData(this),
                     contentType: false ,
                     cache : false ,
                     processData: false,
                     success: function (data) {
-
+                        debugger
                         data = JSON.parse(data) ;
                         var NewRow = '<tr id="tr' + data.id + '" class="odd gradeX">' +
                             '             <td><input type="checkbox" class="checkboxes" value="1"/></td>\n' +
                             '              <td id="ENAME' + data.id + '">' + data.ENAME + '</td>' +
-                            '              <td id="CODE' + data.id + '">' + data.CODE + '</td>' +
+                            '              <td id="EDESCRIPTION' + data.id + '">' + data.EDESCRIPTION + '</td>' +
                             '              <td id="CDATE' + data.id + '">' + data.CREATED_AT + '</td>' +
                             '              <td id="UDATE' + data.id + '">' + data.UPDATED_AT + '</td>' +
                             '              <td>\n' +
@@ -689,7 +430,7 @@
                             '                 <a onclick=\'View(' + data.id +')\'><span class="btn btn-circle btn-warning"><i class="fa fa-check-circle"></i> View</span></a>\n' +
                             '             </td>' +
                             '          </tr>';
-
+                        debugger
 
                         $('#sample_1').DataTable().destroy();
                         $("#sample_1").append(NewRow);
@@ -707,21 +448,20 @@
                 $('#CreateNew').modal('hide');
                 $('#Loading').modal('show');
                 $.ajax({
-                    url: "/Country/" + HtmlId.value ,
+                    url: "/FlightType/" + HtmlId.value ,
                     method :"POST" ,
                     data: test,
                     contentType: false ,
                     cache : false ,
                     processData: false,
                     success: function (data) {
-
+                        debugger
                         $('#CreateNew').modal('hide');
                         data = JSON.parse(data) ;
                         $("#ANAME"+ data.id).html(data.ANAME) ;
                         $("#ENAME"+ data.id).html(data.ENAME) ;
                         $("#ADESCRIPTION"+ data.id).html(data.ADESCRIPTION) ;
                         $("#EDESCRIPTION"+ data.id).html(data.EDESCRIPTION) ;
-                        $("#CODE"+ data.id).html(data.CODE) ;
 
                         $('#Loading').modal('hide');
                         toastr.success("Operation has been done successfully", "Updated successfully");
@@ -738,20 +478,19 @@
             ClearDiv() ;
             $('#ModalTitle').html("Update Item Form");
             $('#Loading').modal('show');
-            $.get('/Country/' + id , function (data) {
-
+            $.get('/FlightType/' + id , function (data) {
+                debugger
                 var MyData = $.parseJSON(data);
                 HtmlId.value = MyData.id ;
                 ANAME.value = MyData.ANAME ;
                 ENAME.value = MyData.ENAME ;
                 ADESCRIPTION.value = MyData.ADESCRIPTION ;
                 EDESCRIPTION.value = MyData.EDESCRIPTION ;
-                CODE.value = MyData.CODE ;
 
-                $('#thumbnail1').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC1.jpg>') ;
-                $('#thumbnail2').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC2.jpg>') ;
-                $('#thumbnail3').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC3.jpg>') ;
-                $('#thumbnail4').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC4.jpg>') ;
+                $('#thumbnail1').append('<img src={{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC1.jpg>') ;
+                $('#thumbnail2').append('<img src={{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC2.jpg>') ;
+                $('#thumbnail3').append('<img src={{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC3.jpg>') ;
+                $('#thumbnail4').append('<img src={{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC4.jpg>') ;
 
                 $('#CreateNew').modal('show');
                 $('#Loading').modal('hide');
@@ -761,10 +500,10 @@
         function Delete(id){
             $('#Loading').modal('show');
             $.ajax({
-                url: '/Country/' + id ,
+                url: '/FlightType/' + id ,
                 type: 'DELETE',
                 success: function(data) {
-
+                    debugger
                     $("#tr"+ id).remove() ;
                     $('#Loading').modal('hide');
                     toastr.error("Operation has been done successfully", "Deleted successfully");
@@ -776,28 +515,26 @@
             });
         }
         function View(id){
-
+            debugger
             $('#Loading').modal('show');
             $("#ViewPageDesc").text('') ;
             $("#ViewPageName").text('') ;
-            $("#ViewPageCode").text('') ;
             $("#ViewPageCreatedDate").text('') ;
             $("#ViewPageUpdatedDate").text('') ;
 
-            $.get('/Country/' + id , function (data) {
-
+            $.get('/FlightType/' + id , function (data) {
+                debugger
                 var MyData = $.parseJSON(data);
 
                 $("#ViewPageDesc").text(MyData.EDESCRIPTION) ;
                 $("#ViewPageName").text(MyData.ENAME) ;
-                $("#ViewPageCode").text(MyData.CODE) ;
                 $("#ViewPageCreatedDate").text(MyData.CREATED_AT) ;
                 $("#ViewPageUpdatedDate").text(MyData.UPDATED_AT) ;
 
-                $("#Img1").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC1.jpg');
-                $("#Img2").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC2.jpg');
-                $("#Img3").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC3.jpg');
-                $("#Img4").attr('src','{{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC4.jpg');
+                $("#Img1").attr('src','{{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC1.jpg');
+                $("#Img2").attr('src','{{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC2.jpg');
+                $("#Img3").attr('src','{{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC3.jpg');
+                $("#Img4").attr('src','{{asset('assets/DownloadedFiles/FlightType/')}}/' + id + '/IMGSRC4.jpg');
 
                 $('#Loading').modal('hide');
                 $('#ItemInfo').modal('show');
@@ -810,7 +547,6 @@
             $('#sample_1').DataTable().destroy();
             $('#sample_1').DataTable().draw();
             UIToastr.init();
-            ComponentsFormTools.init();
         });
     </script>
 @endsection
