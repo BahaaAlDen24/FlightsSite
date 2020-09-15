@@ -54,7 +54,7 @@ class FilesController extends Controller
 
     public static function  DeleteDirctory($ObjectType,$id){
         try{
-            $Result = File::deleteDirectory(public_path("assets/DownloadedFiles/" . $ObjectType ."/". $id ));
+            $Result = File::deleteDirectory(public_path("assets/DownloadedFiles/" . $ObjectType ."/". $id));
             return $Result ;
         }catch (RuntimeException $exception){
             throw  $exception ;

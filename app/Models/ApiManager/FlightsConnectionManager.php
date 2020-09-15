@@ -9,12 +9,13 @@ use GuzzleHttp\Exception\GuzzleException;
 use http\Exception\RuntimeException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
 use phpDocumentor\Reflection\Types\Array_;
 
 class FlightsConnectionManager
 {
     public static function GetAll($OBjectName){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests
@@ -29,7 +30,7 @@ class FlightsConnectionManager
     }
 
     public static function SaveObject($ObjectName,$data){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests
@@ -42,7 +43,7 @@ class FlightsConnectionManager
     }
 
     public static function SaveObjectWithPics($ObjectName,$request){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $Images[] = array()  ;
         unset($Images[0]);
@@ -85,7 +86,7 @@ class FlightsConnectionManager
     }
 
     public static function GetObject($ObjectName,$id){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests
@@ -100,7 +101,7 @@ class FlightsConnectionManager
     }
 
     public static  function UpdateObject($ObjectName,$id,$data){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests
@@ -116,7 +117,7 @@ class FlightsConnectionManager
 
     public static function UpdateObjectWithPics($ObjectName,$id,$request){
         try{
-            $Access_token = Cache::get('AccessToken');
+            $Access_token = Cookie::get('access_token');
 
             $Images[] = array()  ;
             unset($Images[0]);
@@ -161,7 +162,7 @@ class FlightsConnectionManager
     }
 
     public static function DeleteObject($ObjectName,$id){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests
@@ -176,7 +177,7 @@ class FlightsConnectionManager
     }
 
     public static function Login($ObjectName,$data){
-        $Access_token = Cache::get('AccessToken');
+        $Access_token = Cookie::get('access_token');
 
         $client = new Client([
             // Base URI is used with relative requests

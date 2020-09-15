@@ -13,10 +13,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home','Guest\HomeController@index')->name('Home');
+Route::get('/','Guest\HomeController@index')->name('Home');
+Route::get('/AdminPanel','Admin\FlightsController@index')->name('Admin');
 
-Route::get('/login', function () { return view('Auth/Login'); })->name('login');
-Route::get('/register', function () { return view('Auth/Register'); });
+Route::get('/login', 'Auth\AuthController@login1')->name('login');
+Route::get('/logout', 'Auth\AuthController@logout')->name('logout');
+Route::get('/register', function () { return view('Auth/Register'); })->name('Register');
 
 Route::post('/auth/register','Auth\AuthController@register');
 Route::post('/auth/login','Auth\AuthController@login');
@@ -39,3 +41,19 @@ Route::resource('Hotel', 'Admin\HotelsController');
 Route::resource('Offer', 'Admin\OffersController');
 Route::resource('UserProfile', 'Admin\UserProfileController');
 Route::resource('User', 'Admin\UsersController');
+
+Route::post('Search', 'Guest\HomeController@Search');
+Route::get('Details/{id}', 'Guest\HomeController@Details');
+Route::get('BookFlightDetails/{id}', 'Guest\HomeController@BookFlightDetails');
+Route::get('BookFlight/{FlightID}/{BankAccountID}', 'Guest\HomeController@BookFlight');
+
+Route::get('UserBookedFlights', 'Customers\CustomerController@BookedFlightsIndex')->name('UserBookedFlights');
+Route::get('UserCanceledFlights', 'Customers\CustomerController@CanceledFlightsIndex')->name('UserCanceledFlights');
+Route::get('AirlinesIndex', 'Customers\CustomerController@AirlinesIndex')->name('AirlinesIndex');
+Route::get('AirplanesIndex', 'Customers\CustomerController@AirplanesIndex')->name('AirplanesIndex');
+Route::get('AirportsIndex', 'Customers\CustomerController@AirportsIndex')->name('AirportsIndex');
+Route::get('CitiesIndex', 'Customers\CustomerController@CitiesIndex')->name('CitiesIndex');
+Route::get('CountriesIndex', 'Customers\CustomerController@CountriesIndex')->name('CountriesIndex');
+Route::get('HotelsIndex', 'Customers\CustomerController@HotelsIndex')->name('HotelsIndex');
+Route::get('OffersIndex', 'Customers\CustomerController@OffersIndex')->name('OffersIndex');
+

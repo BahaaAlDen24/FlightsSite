@@ -67,335 +67,98 @@
                 <div class="tabs_wrapper tabs1_wrapper">
                     <div class="tabs tabs1">
                         <div class="tabs_tabs tabs1_tabs">
-
-                            <ul>
-                                <li class="active flights"><a href="#tabs-1">Flights</a></li>
-                                <li class="hotels"><a href="#tabs-2">Hotels</a></li>
-                                <li class="cars"><a href="#tabs-3">Cars</a></li>
-                                <li class="cruises"><a href="#tabs-4">Cruises</a></li>
-                            </ul>
-
+                            <div class="row">
+                                <ul><li class="active flights"><a href="#tabs-1">Flights</a></li></ul>
+                            </div>
                         </div>
                         <div class="tabs_content tabs1_content">
-
                             <div id="tabs-1">
-                                <form action="javascript:;" class="form1">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Flying from:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">City or Airport</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
+                                <div class="row">
+                                    <form action="#"  id="SearchForm" name="SearchForm" class="form1 col-sm-4 col-md-12" style="float: left">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-3">
+                                                <div class="">
+                                                    <label>Flying From :</label>
+                                                    <div class="">
+                                                        <select class="select2_category form-control" id="CITYFROM" name="CITYFROM">
+                                                            <option value="">Select...</option>
+                                                            @if (isset($Cities))
+                                                                @foreach ($Cities as $City)
+                                                                    <option value="{{$City->id}}">{{$City->ENAME}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-3">
+                                                <div class="">
+                                                    <label>To:</label>
+                                                    <div class="">
+                                                        <select class="select2_category form-control" id="CITYTO" name="CITYTO">
+                                                            <option value="">Select...</option>
+                                                            @if (isset($Cities))
+                                                                @foreach ($Cities as $City)
+                                                                    <option value="{{$City->id}}">{{$City->ENAME}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-2">
+                                                <div class="input1_wrapper">
+                                                    <label>Departing:</label>
+                                                    <div class="input-group date form_meridian_datetime" data-date="2012-12-21T15:25:00Z">
+                                                        <input type="text" size="16" class="form-control" name="DEPATURETIME" id="DEPATURETIME">
+                                                        <span class="input-group-btn">
+                                                                <button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+												            </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-2">
+                                                <div class="">
+                                                    <label>Flight Type:</label>
+                                                    <div class="">
+                                                        <select class="select2_category form-control" id="Type" name="Type">
+                                                            <option value="">Select...</option>
+                                                            @if (isset($FlightTypes))
+                                                                @foreach ($FlightTypes as $FlightType)
+                                                                    <option value="{{$FlightType->id}}">{{$FlightType->ENAME}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-1">
+                                                <div class="">
+                                                    <label>Adult:</label>
+                                                    <div class="">
+                                                        <select class="select2_category form-control">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-1">
+                                                <div style="margin-top: 23px;">
+                                                    <button id="SearchBtn" class="btn green-haze btn-circle-left"><i class="fa fa-search"></i> Search</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>To:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">City or Airport</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Departing:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Returning:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-1">
-                                            <div class="select1_wrapper">
-                                                <label>Adult:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select select3" style="width: 100%">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-1">
-                                            <div class="select1_wrapper">
-                                                <label>Child:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select select3" style="width: 100%">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="button1_wrapper">
-                                                <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                            <div id="tabs-2">
-                                <form action="javascript:;" class="form1">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-4">
-                                            <div class="select1_wrapper">
-                                                <label>City or Hotel Name:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">Enter a destination or hotel name</option>
-                                                        <option value="2">Lorem ipsum dolor sit amet</option>
-                                                        <option value="3">Duis autem vel eum</option>
-                                                        <option value="4">Ut wisi enim ad minim veniam</option>
-                                                        <option value="5">Nam liber tempor cum</option>
-                                                        <option value="6">At vero eos et accusam et</option>
-                                                        <option value="7">Consetetur sadipscing elitr</option>
-                                                        <option value="8">Sed diam nonumy</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Check-In:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Check-Out:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Adult:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">Room  for  1  adult</option>
-                                                        <option value="2">Room  for  2  adult</option>
-                                                        <option value="3">Room  for  3  adult</option>
-                                                        <option value="4">Room  for  4  adult</option>
-                                                        <option value="5">Room  for  5  adult</option>
-                                                        <option value="6">Room  for  6  adult</option>
-                                                        <option value="7">Room  for  7  adult</option>
-                                                        <option value="8">Room  for  8  adult</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="button1_wrapper">
-                                                <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div id="tabs-3">
-                                <form action="javascript:;" class="form1">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Country:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">Please Select</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>City:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">Please Select</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Location:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">Please Select</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Pick up Date:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Drop off Date:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="Mm/Dd/Yy">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="button1_wrapper">
-                                                <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div id="tabs-4">
-                                <form action="javascript:;" class="form1">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Sail To:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">All destinations</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Sail From:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">All ports</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>Start Date:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="From any month">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="input1_wrapper">
-                                                <label>End of Date:</label>
-                                                <div class="input1_inner">
-                                                    <input type="text" class="input datepicker" value="To any month">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="select1_wrapper">
-                                                <label>Cruise Ship:</label>
-                                                <div class="select1_inner">
-                                                    <select class="select2 select" style="width: 100%">
-                                                        <option value="1">All Ships</option>
-                                                        <option value="2">Alaska</option>
-                                                        <option value="3">Bahamas</option>
-                                                        <option value="4">Bermuda</option>
-                                                        <option value="5">Canada</option>
-                                                        <option value="6">Caribbean</option>
-                                                        <option value="7">Europe</option>
-                                                        <option value="8">Hawaii</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-sm-4 col-md-2">
-                                            <div class="button1_wrapper">
-                                                <button type="submit" class="btn-default btn-form1-submit">Search</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -409,445 +172,692 @@
 
                 <div class="title1 animated" data-animation="fadeInUp" data-animation-delay="200">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <br>tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
 
-                <br><br>
 
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="200">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure class="">
-                                        <img src="images/why1.png" alt="" class="img1 img-responsive">
-                                        <img src="images/why1_hover.png" alt="" class="img2 img-responsive">
-                                    </figure>
-                                    <div class="caption">
-                                        <div class="txt1">Amazing Travel</div>
-                                        <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
-                                        <div class="txt3">Read More</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="300">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure class="">
-                                        <img src="{{asset('assets/images/why2.png')}}" alt="" class="img1 img-responsive">
-                                        <img src="{{asset('assets/images/why2_hover.png')}}" alt="" class="img2 img-responsive">
-                                    </figure>
-                                    <div class="caption">
-                                        <div class="txt1">Discover</div>
-                                        <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
-                                        <div class="txt3">Read More</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="400">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure class="">
-                                        <img src="images/why3.png" alt="" class="img1 img-responsive">
-                                        <img src="images/why3_hover.png" alt="" class="img2 img-responsive">
-                                    </figure>
-                                    <div class="caption">
-                                        <div class="txt1">Book Your Trip</div>
-                                        <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
-                                        <div class="txt3">Read More</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="thumb2 animated" data-animation="flipInY" data-animation-delay="500">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure class="">
-                                        <img src="images/why4.png" alt="" class="img1 img-responsive">
-                                        <img src="images/why4_hover.png" alt="" class="img2 img-responsive">
-                                    </figure>
-                                    <div class="caption">
-                                        <div class="txt1">Nice Support</div>
-                                        <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim.</div>
-                                        <div class="txt3">Read More</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                <div id="SearchResultFlights">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal fade" id="Loading" role="basic" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="{{asset('assets/AdminPanel/global/img/loading-spinner-grey.gif')}}" alt="" class="loading">
+                        <span>&nbsp;&nbsp;Loading... </span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="parallax1" class="parallax">
-            <div class="bg1 parallax-bg"></div>
-            <div class="overlay"></div>
-            <div class="parallax-content">
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-sm-10 animated" data-animation="fadeInLeft" data-animation-delay="100">
-                            <div class="txt1">Caucasus Vacation Packages</div>
-                            <div class="txt2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</div>
-                            <div class="txt3">From: Khazbegi (Goergia) <strong>$159.00</strong><span>person</span></div>
-                        </div>
-                        <div class="col-sm-2 animated" data-animation="fadeInRight" data-animation-delay="200">
-                            <a href="#" class="btn-default btn0">Details</a>
-                        </div>
+        <div class="modal fade" id="ItemInfo" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-full">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">View</h4>
                     </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="popular_cruises1">
-            <div class="container">
-
-                <h2 class="animated" data-animation="fadeInUp" data-animation-delay="100">POPULAR CRUISES</h2>
-
-                <div class="title1 animated" data-animation="fadeInUp" data-animation-delay="200">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod <br>tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-
-                <br><br>
-
-                <div id="popular_wrapper" class="animated" data-animation="fadeIn" data-animation-delay="300">
-                    <div id="popular_inner">
-                        <div class="">
-                            <div id="popular">
-                                <div class="">
-                                    <div class="carousel-box">
-                                        <div class="inner">
-                                            <div class="carousel main">
-                                                <ul>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular01.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Bahamas <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Bahamas</span> 7 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star2.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 18 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                    <div class="modal-body">
+                        <!-- BEGIN PAGE CONTENT INNER -->
+                        <div class="portlet light">
+                            <div class="portlet-body">
+                                <div class="timeline">
+                                    <!-- TIMELINE ITEM -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <img class="timeline-badge-userpic" src="{{asset('assets/AdminPanel/admin/pages/media/pages/Flight.jpg')}}">
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow">
+                                            </div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <a href="javascript:;" class="timeline-body-title font-blue-madison">Flight Information</a>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airport From :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_From"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular02.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Mediterranean <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Mediterranean</span> 18 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 168 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airport To :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_To"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <!--/span-->
                                                         </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular03.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Greece <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Greece</span> 6 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star2.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 16 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Departure Time :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_Departure"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular01.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Bahamas <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Bahamas</span> 7 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star2.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 18 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Arrival Time :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_Arrival"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <!--/span-->
                                                         </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular02.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Mediterranean <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Mediterranean</span> 18 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 168 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airline Company :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_Airline"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="popular">
-                                                            <div class="popular_inner">
-                                                                <figure>
-                                                                    <img src="images/popular03.jpg" alt="" class="img-responsive">
-                                                                    <div class="over">
-                                                                        <div class="v1">Greece <span>17 Deal Offers</span></div>
-                                                                        <div class="v2">Lorem ipsum dolor sit amet, concateus.</div>
-                                                                    </div>
-                                                                </figure>
-                                                                <div class="caption">
-                                                                    <div class="txt1"><span>Greece</span> 6 Night Tour</div>
-                                                                    <div class="txt2">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming.</div>
-                                                                    <div class="txt3 clearfix">
-                                                                        <div class="left_side">
-                                                                            <div class="stars1">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star1.png" alt="">
-                                                                                <img src="images/star2.png" alt="">
-                                                                            </div>
-                                                                            <div class="nums">- 16 Reviews</div>
-                                                                        </div>
-                                                                        <div class="right_side"><a href="#" class="btn-default btn1">See All</a></div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airplane Company :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_Airplane"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <!--/span-->
                                                         </div>
-                                                    </li>
-                                                </ul>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Flight Type :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Flight_Type"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Price :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static price" id="Flight_Price"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- END TIMELINE ITEM -->
+                                    <!-- TIMELINE ITEM -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <img class="timeline-badge-userpic" src="{{asset('assets/AdminPanel/admin/pages/media/pages/Offer.jpg')}}">
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow">
+                                            </div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <span class="timeline-body-alerttitle font-red-intense">Offers Information</span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content" id="Offers_Information_Body">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Offer Name :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Offer_Name"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Offer Discount rate :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="Offer_DiscountRate"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <!--/span-->
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Price After Discount :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static price" id="Price_After_DiscountRate"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TIMELINE ITEM -->
                                 </div>
-                                <div class="popular_pagination"></div>
                             </div>
                         </div>
+                        <!-- END PAGE CONTENT INNER -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
 
-        <div id="happy1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-md-push-6">
-                        <div class="content">
-                            <div class="txt1 animated" data-animation="fadeIn" data-animation-delay="100">HAPPY CUSTOMERS</div>
-                            <div class="txt2 animated" data-animation="fadeIn" data-animation-delay="150">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, set amet. </div>
-                            <div class="txt3 animated" data-animation="fadeIn" data-animation-delay="200">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh oui-
-                                    sod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit dolore magna aliquam erat voutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit..
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euisod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.
-                                </p>
-                            </div>
-
-                            <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="0">
-                                <div class="txt">Flights</div>
-                                <div class="bg">
-                                    <div class="animated-distance" data-num="94" data-duration="1300" data-animation-delay="0"><span></span></div>
-                                </div>
-                            </div>
-
-                            <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="100">
-                                <div class="txt">Hotels</div>
-                                <div class="bg">
-                                    <div class="animated-distance" data-num="87" data-duration="1300" data-animation-delay="100"><span></span></div>
-                                </div>
-                            </div>
-
-                            <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="200">
-                                <div class="txt">Cars</div>
-                                <div class="bg">
-                                    <div class="animated-distance" data-num="48" data-duration="1300" data-animation-delay="200"><span></span></div>
-                                </div>
-                            </div>
-
-                            <div class="distance1 animated" data-animation="fadeInUp" data-animation-delay="300">
-                                <div class="txt">Cruises</div>
-                                <div class="bg">
-                                    <div class="animated-distance" data-num="51" data-duration="1300" data-animation-delay="300"><span></span></div>
-                                </div>
-                            </div>
-
-                        </div>
+        <div class="modal fade" id="BookFlightDetails" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-full">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">View</h4>
                     </div>
-                    <div class="col-sm-12 col-md-6 col-md-pull-6 animated" data-animation="fadeInLeft" data-animation-delay="200">
-                        <img src="images/people.png" alt="" class="img1 img-responsive">
+                    <div class="modal-body">
+                        <!-- BEGIN PAGE CONTENT INNER -->
+                        <div class="portlet light">
+                            <div class="portlet-body">
+                                <div class="timeline">
+                                    <!-- TIMELINE ITEM -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <img class="timeline-badge-userpic" src="{{asset('assets/AdminPanel/admin/pages/media/pages/Flight.jpg')}}">
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow">
+                                            </div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <a href="javascript:;" class="timeline-body-title font-blue-madison">Flight Information</a>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airport From :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_From"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airport To :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_To"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Departure Time :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Departure"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Arrival Time :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Arrival"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airline Company :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Airline"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Airplane Company :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Airplane"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Flight Type :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Type"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Price :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookFlight_Price"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TIMELINE ITEM -->
+                                    <!-- TIMELINE ITEM -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <div class="timeline-icon">
+                                                <i class="icon-user-following font-green-haze"></i>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow">
+                                            </div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <span class="timeline-body-alerttitle font-red-intense">User Information</span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">User Name :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookUser_Name"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">User Email :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookUser_Email"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Bank Name :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookUser_Bank"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">User Funds :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookUser_Funds"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TIMELINE ITEM -->
+                                    <!-- TIMELINE ITEM -->
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <img class="timeline-badge-userpic" src="{{asset('assets/AdminPanel/admin/pages/media/pages/Offer.jpg')}}">
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow">
+                                            </div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <span class="timeline-body-alerttitle font-red-intense">Offers Information</span>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content" id="Offers_Information_Body">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <!--/row-->
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Offer Name :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookOffer_Name"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Offer Discount rate :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static" id="BookOffer_DiscountRate"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                            <!--/span-->
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-5">Price After Discount :</label>
+                                                                    <div class="col-md-7">
+                                                                        <p class="form-control-static price" id="BookPrice_After_DiscountRate"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--/span-->
+                                                        </div>
+                                                        <!--/row-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TIMELINE ITEM -->
+                                </div>
+                                <label id="BookedFlightWarringMessage" class="warning label-danger"></label>
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT INNER -->
+                    </div>
+                    <div class="modal-footer" id="BookFlightFooter">
+
                     </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
 
-        <div id="partners">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="100">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner1.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner1_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="200">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner2.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner2_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="300">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner3.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner3_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="400">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner4.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner4_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="500">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner5.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner5_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-2 col-xs-6">
-                        <div class="thumb1 animated" data-animation="flipInX" data-animation-delay="600">
-                            <div class="thumbnail clearfix">
-                                <a href="#">
-                                    <figure>
-                                        <img src="images/partner6.jpg" alt="" class="img1 img-responsive">
-                                        <img src="images/partner6_hover.jpg" alt="" class="img2 img-responsive">
-                                    </figure>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </section>
+@endsection
+
+@section('pageJS')
+    <script type="text/javascript">
+        debugger
+        var IsLoggedIn = {!! json_encode($IsLoggedIn) !!}
+        $(function () {
+            debugger
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+        $('#SearchBtn').click(function (e) {
+            e.preventDefault();
+            $('#Loading').modal('show');
+            $('#SearchResultFlights').empty() ;
+            debugger
+            $.ajax({
+                data: $('#SearchForm').serialize(),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/Search' ,
+                type: "POST",
+                dataType: 'json',
+                success: function (data) {
+                    debugger
+                    var i ;
+                    for (i = 0 ; i < data.length ; i++ ){
+                    var SRC = '{{asset('assets/DownloadedFiles/Airlines/')}}/' + data[i].AIRLINEID + '/IMGSRC1.jpg' ;
+                    var offerString = "" ;
+                    var DisplayNone = ""
+                    if (data[i].OfferName != null){
+                        offerString = " , Discount : " + data[i].OfferDISCOUNTRATE + "%" ;
+                    }
+
+                    if(!IsLoggedIn){
+                        DisplayNone = "display: none;" ;
+                    }
+
+                    var NewFlight = ' <div class="row">\n' +
+                        '                    <div class="col-sm-12">\n' +
+                        '                        <div class="thumb4">\n' +
+                        '                            <div class="thumbnail clearfix">\n' +
+                        '                                <div class="row">\n' +
+                        '                                    <div class="col-sm-4">\n' +
+                        '                                        <figure>\n' +
+                        '                                            <img src="'+ SRC +'" alt="" class="img-responsive" style="margin:50px;">\n' +
+                        '                                        </figure>\n' +
+                        '                                    </div>\n' +
+                        '                                    <div class="col-sm-8">\n' +
+                        '                                        <div class="caption" style="margin-top: 50px;">\n' +
+                        '                                            <div class="row">\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">'+ data[i].FromName + ' - '+ data[i].ToName +'</div></div>\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">'+ data[i].CityFromName + ' - '+ data[i].CityToName +'</div></div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="row">\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">Departure :'+ data[i].DEPATURETIME +'</div></div>\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">Arrival   :'+ data[i].ARRIVALTIME +'</div></div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="row">\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">Airline : '+ data[i].AirlineName +'</div></div>\n' +
+                        '                                                <div class="col-sm-6"><div class="txt1">Airplane : '+ data[i].AirplaneName +'</div></div>\n' +
+                        '                                            </div>\n' +
+                        '                                            <div class="txt3 clearfix">\n' +
+                        '                                                <div class="left_side">\n' +
+                        '                                                    <div class="price">$'+ data[i].PRICE +'.00 ' + offerString + '</div>\n' +
+                        '                                                    <div class="nums">avg/person</div>\n' +
+                        '                                                </div>\n' +
+                        '                                                <div class="right_side" style="margin-right: 130px;">\n' +
+                        '                                                    <a onclick="Details('+ data[i].id +');" class="btn-default btn1">Details</a>\n' +
+                        '                                                </div>\n' +
+                        '                                                <div class="right_side" style="margin-right: 10px; ' + DisplayNone +'">\n' +
+                        '                                                    <a onclick="BookFlightDetails('+ data[i].id +');" class="btn-default btn1">Book Now</a>\n' +
+                        '                                                </div>\n' +
+                        '                                            </div>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>';
+
+                        $('#SearchResultFlights').append(NewFlight);
+                    }
+                    $('#Loading').modal('hide');
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        });
+
+        function Details(id){
+            debugger
+            $('#Loading').modal('show');
+
+            $("#Flight_From").text('') ;
+            $("#Flight_To").text('') ;
+            $("#Flight_Departure").text('') ;
+            $("#Flight_Arrival").text('') ;
+            $("#Flight_Airline").text('') ;
+            $("#Flight_Airplane").text('') ;
+            $("#Flight_Type").text('') ;
+            $("#Flight_Price").text('') ;
+
+            $("#Offer_Name").text('') ;
+            $("#Offer_DiscountRate").text('') ;
+            $("#Price_After_DiscountRate").text('') ;
+
+            $.get('/Details/' + id , function (data) {
+                debugger
+                var MyData = $.parseJSON(data);
+
+                $("#Flight_From").text(MyData.FromName) ;
+                $("#Flight_To").text(MyData.ToName) ;
+                $("#Flight_Departure").text(MyData.DEPATURETIME) ;
+                $("#Flight_Arrival").text(MyData.ARRIVALTIME) ;
+                $("#Flight_Airline").text(MyData.AirlineName) ;
+                $("#Flight_Airplane").text(MyData.AirplaneName) ;
+                $("#Flight_Type").text(MyData.FlightTypeName) ;
+                $("#Flight_Price").text(MyData.PRICE + " $") ;
+
+                if (MyData.OfferName != null){
+                    $("#Offer_Name").text(MyData.OfferName) ;
+                    $("#Offer_DiscountRate").text(MyData.OfferDISCOUNTRATE + "%") ;
+                    $("#Price_After_DiscountRate").text(MyData.OfferDISCOUNTRATE * MyData.PRICE / 100 + "$") ;
+                }else{
+                    $("#Offer_Name").text('there is no offers') ;
+                    $("#Offer_DiscountRate").text('there is no offers') ;
+                    $("#Price_After_DiscountRate").text('there is no offers') ;
+                }
+
+                $('#Loading').modal('hide');
+                $('#ItemInfo').modal('show');
+
+            })
+        }
+
+        function BookFlightDetails(id){
+            debugger
+            $('#Loading').modal('show');
+
+            $("#BookFlight_From").text('') ;
+            $("#BookFlight_To").text('') ;
+            $("#BookFlight_Departure").text('') ;
+            $("#BookFlight_Arrival").text('') ;
+            $("#BookFlight_Airline").text('') ;
+            $("#BookFlight_Airplane").text('') ;
+            $("#BookFlight_Type").text('') ;
+            $("#BookFlight_Price").text('') ;
+
+            $("#BookUser_Name").text('') ;
+            $("#BookUser_Email").text('') ;
+
+            $("#BookOffer_Name").text('') ;
+            $("#BookOffer_DiscountRate").text('') ;
+            $("#BookPrice_After_DiscountRate").text('') ;
+
+            $.get('/BookFlightDetails/' + id , function (data) {
+                debugger
+                var MyData = $.parseJSON(data);
+
+                $("#BookFlight_From").text(MyData[0].FromName) ;
+                $("#BookFlight_To").text(MyData[0].ToName) ;
+                $("#BookFlight_Departure").text(MyData[0].DEPATURETIME) ;
+                $("#BookFlight_Arrival").text(MyData[0].ARRIVALTIME) ;
+                $("#BookFlight_Airline").text(MyData[0].AirlineName) ;
+                $("#BookFlight_Airplane").text(MyData[0].AirplaneName) ;
+                $("#BookFlight_Type").text(MyData[0].FlightTypeName) ;
+                $("#BookFlight_Price").text(MyData[0].PRICE + " $") ;
+
+                $("#BookUser_Name").text(MyData[1].User) ;
+                $("#BookUser_Email").text(MyData[1].Email) ;
+                $("#BookUser_Bank").text(MyData[1].Bank) ;
+                $("#BookUser_Funds").text(MyData[1].FUNDS + '$') ;
+
+                if (MyData[0].OfferName != null){
+                    $("#BookOffer_Name").text(MyData[0].OfferName) ;
+                    $("#BookOffer_DiscountRate").text(MyData[0].OfferDISCOUNTRATE + "%") ;
+                    $("#BookPrice_After_DiscountRate").text(MyData[0].OfferDISCOUNTRATE * MyData[0].PRICE / 100 + "$") ;
+                }else{
+                    $("#BookOffer_Name").text('there is no offers') ;
+                    $("#BookOffer_DiscountRate").text('there is no offers') ;
+                    $("#BookPrice_After_DiscountRate").text('there is no offers') ;
+                }
+                debugger
+                $('#BookFlightFooter').empty() ;
+                if ( (MyData[1].Bank != null) && (MyData[1].FUNDS > MyData[0].PRICE ) ){
+                    $('#BookFlightFooter').append('<button onclick="BookFlight('+ MyData[0].id +','+ MyData[1].AccountID +');" class="btn default">Book Now !!</button> <button type="button" class="btn default" data-dismiss="modal">Close</button>') ;
+                }else {
+                    $('#BookFlightFooter').append('<button type="button" class="btn default" data-dismiss="modal">Close</button>')
+                    $('#BookedFlightWarringMessage').html("Sorry You cant book this flight , you dont have bank account or your funds dosent enough !!");
+                }
+
+                $('#Loading').modal('hide');
+                $('#BookFlightDetails').modal('show');
+
+            })
+        }
+
+        function BookFlight(FlightID,BankAccountID){
+            $('#Loading').modal('show');
+            $('#BookFlightDetails').modal('hide');
+            $.get('/BookFlight/' + FlightID + '/' + BankAccountID, function (data) {
+                $('#Loading').modal('hide');
+                toastr.success("Operation has been done successfully", "Flight Booked successfully");
+            });
+        }
+
+        jQuery(document).ready(function() {
+
+        });
+    </script>
 @endsection

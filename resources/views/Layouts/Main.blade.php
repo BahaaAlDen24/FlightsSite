@@ -18,9 +18,9 @@
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/select2.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/smoothness/jquery-ui-1.10.0.custom.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/AdminPanel/global/plugins/select2/select2.css')}}" rel="stylesheet" type="text/css"/>
 
     <script src="{{asset('assets/js/jquery.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
@@ -28,11 +28,23 @@
     <script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
     <script src="{{asset('assets/js/superfish.js')}}"></script>
 
-    <script src="{{asset('assets/js/select2.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-toastr/toastr.min.css')}}"/>
+
+    <link href="{{asset('assets/AdminPanel/admin/pages/css/timeline.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/AdminPanel/global/css/components-rounded.css')}}" id="style_components" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/AdminPanel/global/css/plugins.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/AdminPanel/admin/layout3/css/layout.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets/AdminPanel/admin/layout3/css/themes/default.css')}}" rel="stylesheet" type="text/css" id="style_color">
+    <link href="{{asset('assets/AdminPanel/admin/layout3/css/custom.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/clockface/css/clockface.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')}}"/>
+
+    <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/select2/select2.min.js')}}"></script>
 
     <script src="{{asset('assets/js/jquery.parallax-1.1.3.resize.js')}}"></script>
-
-    <script src="{{asset('assets/js/SmoothScroll.js')}}"></script>
 
     <script src="{{asset('assets/js/jquery.appear.js')}}"></script>
 
@@ -101,61 +113,25 @@
                     </button>
                     <div class="navbar-collapse navbar-collapse_ collapse">
                         <ul class="nav navbar-nav sf-menu clearfix">
-                            <li class="sub-menu sub-menu-1 active"><a href="#">Home<em></em></a>
+                            <li><a href="{{ route('Home') }}"  class="active">Home</a></li>
+                            <li class="sub-menu sub-menu-1"><a href="#">Places<em></em></a>
                                 <ul>
-                                    <li><a href="{{asset('assets/index-2.html')}}">Home Version 1</a></li>
-                                    <li><a href="{{asset('assets/index-3.html')}}">Home Version 2 (slideshow)</a></li>
-                                    <li><a href="{{asset('assets/index-1.html')}}">Home Version 3 (video)</a></li>
+                                    <li><a href="{{ route('CountriesIndex') }}">Countries</a></li>
+                                    <li><a href="{{ route('CitiesIndex') }}">Cities</a></li>
+                                    <li><a href="{{ route('HotelsIndex') }}">Hotels</a></li>
+                                    <li><a href="{{ route('AirportsIndex') }}">Airports</a></li>
                                 </ul>
                             </li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li class="sub-menu sub-menu-1"><a href="#">Pages<em></em></a>
-                                <ul>
-                                    <li><a href="flights.html">Flights</a>
-                                        <ul>
-                                            <li><a href="search-flights.html">Search Flights</a></li>
-                                            <li><a href="booking-flights.html">Booking Flights</a></li>
-                                            <li><a href="booking-flights-page.html">Flights Checkout</a></li>
-                                        </ul>
-                                    </li>
-
-
-                                    <li><a href="hotels.html">Hotels</a>
-                                        <ul>
-                                            <li><a href="search-hotel.html">Search Hotels</a></li>
-                                            <li><a href="booking-hotel.html">Booking Hotel</a></li>
-                                            <li><a href="booking-hotel-page.html">Hotel Reservation</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="cars.html">Rent a Car</a>
-                                        <ul>
-                                            <li><a href="search-cars.html">Search Cars</a></li>
-                                            <li><a href="booking-cars.html">Booking Car</a></li>
-                                            <li><a href="booking-cars-page.html">Car Reservation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="cruises.html">Cruises</a>
-                                        <ul>
-                                            <li><a href="search-cruise.html">Search Cruise</a></li>
-                                            <li><a href="booking-cruise.html">Booking Cruise</a></li>
-                                            <li><a href="booking-cruise-page.html">Cruise Checkout</a></li>
-                                        </ul>
-                                    </li>
+                            <li><a href="{{ route('AirlinesIndex') }}">Airlines</a></li>
+                            <li><a href="{{ route('AirplanesIndex') }}">Airplanes</a></li>
+                            <li><a href="{{ route('OffersIndex') }}">Offers</a></li>
+                            <li class="sub-menu sub-menu-1"><a href="#">User Setting<em></em></a>
+                                <ul id="UserSettingUl">
+                                    <li><a href="{{ route('login') }}">Log In</a></li>
+                                    <li><a href="{{ route('Register') }}">Register</a></li>
                                 </ul>
                             </li>
-
-                            <li class="sub-menu sub-menu-1"><a href="#">Blog<em></em></a>
-                                <ul>
-                                    <li><a href="blog.html">Right Blog</a></li>
-                                    <li><a href="left-blog.html">Left Blog</a></li>
-                                    <li><a href="post.html">Right Post</a></li>
-                                    <li><a href="left-post.html">Left Post</a></li>
-                                    <li><a href="full-post.html">Full Post</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="contacts.html">Contact us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -231,18 +207,42 @@
             </div>
         </div>
     </div>
-
-    <div class="bot2_wrapper">
-        <div class="container">
-            <div class="left_side">
-                Copyright © 2017 <a href="#" target="_blank"><strong>MECOVACHE</strong></a>   <span>|</span>   <a href="#">Privacy Policy</a>   <span>|</span>   <a href="#">About Us</a>   <span>|</span>   <a href="#">FAQ</a>   <span>|</span>   <a href="#">Contact Support</a>
-            </div>
-            <div class="right_side">Designed by <a href="#" target="_blank"><strong>MECOVACHE</strong></a></div>
-        </div>
-    </div>
 </div>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/clockface/js/clockface.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-daterangepicker/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/components-pickers.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/global/scripts/metronic.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/AdminPanel/admin/layout3/scripts/layout.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/AdminPanel/admin/layout3/scripts/demo.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/form-samples.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/timeline.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/AdminPanel/global/plugins/bootstrap-toastr/toastr.min.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/ui-toastr.js')}}"></script>
 @yield('pageJS')
 </body>
-
+<script>
+    jQuery(document).ready(function() {
+        debugger
+        if ( {!! json_encode($IsLoggedIn) !!} ){
+            $("#UserSettingUl").empty() ;
+            var LoggedUserElements = "<li><a href=\"{{ route('UserBookedFlights') }}\">Booked Flights</a></li>\n" +
+                "                                    <li><a href=\"{{ route('UserCanceledFlights') }}\">Canceled Flights</a></li>\n" +
+                "                                    <li><a href=\"{{ route('login') }}\">Profile</a></li>\n" +
+                "                                    <li><a href=\"{{ route('logout') }}\">Log Out</a></li>" ;
+            $("#UserSettingUl").append(LoggedUserElements) ;
+        }
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        Demo.init(); // init demo features
+        FormSamples.init();
+        ComponentsPickers.init();
+        UIToastr.init();
+        Timeline.init(); // init timeline page
+    });
+</script>
 </html>

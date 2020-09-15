@@ -2,7 +2,6 @@
 
 @section('PageCSS')
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/select2/select2.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-toastr/toastr.min.css')}}"/>
     <link href="{{asset('assets/AdminPanel/admin/pages/css/news.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,7 +37,7 @@
         <!-- BEGIN PAGE BREADCRUMB -->
         <ul class="page-breadcrumb breadcrumb">
             <li>
-                <a href="#">Dashboard</a><i class="fa fa-circle"></i>
+                <a href="{{route('Admin')}}">Home</a><i class="fa fa-circle"></i>
             </li>
             <li class="active">
                 Countries
@@ -63,9 +62,6 @@
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                             <tr>
-                                <th class="table-checkbox">
-                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes"/>
-                                </th>
                                 <th>Country Name</th>
                                 <th>Country Code</th>
                                 <th>Created Date</th>
@@ -77,7 +73,6 @@
                             @if (isset($Objects))
                                 @foreach ($Objects as $Object)
                                     <tr id="{{"tr" . $Object->id}}" class="odd gradeX">
-                                        <td><input type="checkbox" class="checkboxes" value="1"/></td>
                                         <td id="{{"ENAME" . $Object->id}}">{{$Object->ENAME}}</td>
                                         <td id="{{"CODE" . $Object->id}}">{{$Object->CODE}}</td>
                                         <td id="{{"CDATE" . $Object->id}}">{{$Object->CREATED_AT}}</td>
@@ -153,7 +148,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Country Code<span class="required">*</span></label>
                                             <div class="col-md-9">
-                                                <select id="CODE" name="CODE" class="form-control">
+                                                <select id="CODE" name="CODE" class="select2_category form-control">
                                                     <option value="AF">Afghanistan</option>
                                                     <option value="AX">Åland Islands</option>
                                                     <option value="AL">Albania</option>
@@ -262,7 +257,6 @@
                                                     <option value="IQ">Iraq</option>
                                                     <option value="IE">Ireland</option>
                                                     <option value="IM">Isle of Man</option>
-                                                    <option value="IL">Israel</option>
                                                     <option value="IT">Italy</option>
                                                     <option value="JM">Jamaica</option>
                                                     <option value="JP">Japan</option>
@@ -615,7 +609,6 @@
 
 @section('pageJS')
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/select2/select2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/datatables/media/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js')}}"></script>
     <script src="{{asset('assets/AdminPanel/admin/pages/scripts/table-managed.js')}}"></script>
@@ -635,7 +628,7 @@
             ENAME.value = "" ;
             ADESCRIPTION.value = "" ;
             EDESCRIPTION.value = "" ;
-            CODE.value = "" ;
+            $("#CODE").select2("val","");
             $('#thumbnail1').empty() ;
             $('#thumbnail2').empty() ;
             $('#thumbnail3').empty() ;
@@ -678,7 +671,6 @@
 
                         data = JSON.parse(data) ;
                         var NewRow = '<tr id="tr' + data.id + '" class="odd gradeX">' +
-                            '             <td><input type="checkbox" class="checkboxes" value="1"/></td>\n' +
                             '              <td id="ENAME' + data.id + '">' + data.ENAME + '</td>' +
                             '              <td id="CODE' + data.id + '">' + data.CODE + '</td>' +
                             '              <td id="CDATE' + data.id + '">' + data.CREATED_AT + '</td>' +
@@ -746,7 +738,7 @@
                 ENAME.value = MyData.ENAME ;
                 ADESCRIPTION.value = MyData.ADESCRIPTION ;
                 EDESCRIPTION.value = MyData.EDESCRIPTION ;
-                CODE.value = MyData.CODE ;
+                $("#CODE").select2("val",MyData.CODE);
 
                 $('#thumbnail1').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC1.jpg>') ;
                 $('#thumbnail2').append('<img src={{asset('assets/DownloadedFiles/Country/')}}/' + id + '/IMGSRC2.jpg>') ;
@@ -810,7 +802,6 @@
             $('#sample_1').DataTable().destroy();
             $('#sample_1').DataTable().draw();
             UIToastr.init();
-            ComponentsFormTools.init();
         });
     </script>
 @endsection

@@ -19,8 +19,8 @@ class AirlinesController extends Controller
     public function store(Request $request)
     {
         $response =  FlightsConnectionManager::SaveObjectWithPics("Airline",$request) ;
-
-        $Data = $response->getBody() ;
+        $data = json_decode($response->getBody(),true);
+        FilesController::FileDownload2($data['IMGSRC1'],$data['id'],"Airlines","IMGSRC1") ;
 
         return $response->getBody();
     }
@@ -52,6 +52,13 @@ class AirlinesController extends Controller
     {
         try{
             $response =  FlightsConnectionManager::UpdateObjectWithPics("Airline",$id,$request) ;
+            $data = json_decode($response->getBody(),true);
+
+            if ($data['IMGSRC1'] != ""){
+                FilesController::DeleteDirctory("Airlines",$id) ;
+                FilesController::FileDownload2($data['IMGSRC1'],$data['id'],"Airlines","IMGSRC1") ;
+            }
+
             return $response->getBody() ;
         }catch (RuntimeException  $exception){
             throw $exception ;

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\FlightsConnectionManager;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FilesController;
 use http\Exception\RuntimeException;
 use Illuminate\Http\Request;
 

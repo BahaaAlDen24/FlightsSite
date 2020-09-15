@@ -2,7 +2,6 @@
 
 @section('PageCSS')
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/select2/select2.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/AdminPanel/global/plugins/bootstrap-toastr/toastr.min.css')}}"/>
     <link href="{{asset('assets/AdminPanel/admin/pages/css/news.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,7 +37,7 @@
         <!-- BEGIN PAGE BREADCRUMB -->
         <ul class="page-breadcrumb breadcrumb">
             <li>
-                <a href="#">Dashboard</a><i class="fa fa-circle"></i>
+                <a href="{{route('Admin')}}">Home</a><i class="fa fa-circle"></i>
             </li>
             <li class="active">
                 Flight Types
@@ -63,9 +62,6 @@
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                             <tr>
-                                <th class="table-checkbox">
-                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes"/>
-                                </th>
                                 <th>Flight Type Name</th>
                                 <th>Description</th>
                                 <th>Created Date</th>
@@ -77,7 +73,6 @@
                             @if (isset($Objects))
                                 @foreach ($Objects as $Object)
                                     <tr id="{{"tr" . $Object->id}}" class="odd gradeX">
-                                        <td><input type="checkbox" class="checkboxes" value="1"/></td>
                                         <td id="{{"ENAME" . $Object->id}}">{{$Object->ENAME}}</td>
                                         <td id="{{"EDESCRIPTION" . $Object->id}}">{{$Object->EDESCRIPTION}}</td>
                                         <td id="{{"CDATE" . $Object->id}}">{{$Object->CREATED_AT}}</td>
@@ -358,7 +353,6 @@
 
 @section('pageJS')
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/select2/select2.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/datatables/media/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js')}}"></script>
     <script src="{{asset('assets/AdminPanel/admin/pages/scripts/table-managed.js')}}"></script>
@@ -419,7 +413,6 @@
                         debugger
                         data = JSON.parse(data) ;
                         var NewRow = '<tr id="tr' + data.id + '" class="odd gradeX">' +
-                            '             <td><input type="checkbox" class="checkboxes" value="1"/></td>\n' +
                             '              <td id="ENAME' + data.id + '">' + data.ENAME + '</td>' +
                             '              <td id="EDESCRIPTION' + data.id + '">' + data.EDESCRIPTION + '</td>' +
                             '              <td id="CDATE' + data.id + '">' + data.CREATED_AT + '</td>' +

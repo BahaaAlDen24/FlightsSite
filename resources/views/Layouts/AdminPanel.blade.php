@@ -32,12 +32,15 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{asset('assets/AdminPanel/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/AdminPanel/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css">
     <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="{{asset('assets/AdminPanel/global/plugins/select2/select2.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/AdminPanel/admin/pages/css/timeline.css')}}" rel="stylesheet" type="text/css"/>
     <!-- BEGIN THEME STYLES -->
     <link href="{{asset('assets/AdminPanel/global/css/components-rounded.css')}}" id="style_components" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/AdminPanel/global/css/plugins.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/AdminPanel/admin/layout3/css/layout.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/AdminPanel/admin/layout3/css/themes/default.css')}}" rel="stylesheet" type="text/css" id="style_color">
     <link href="{{asset('assets/AdminPanel/admin/layout3/css/custom.css')}}" rel="stylesheet" type="text/css">
+
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
     <!-- BEGIN PAGE LEVEL STYLES -->
@@ -425,7 +428,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="hor-menu ">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Dashboard</a>
+                        <a href="{{route('Admin')}}">Home</a>
                     </li>
                     <li class="menu-dropdown mega-menu-dropdown ">
                         <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
@@ -722,21 +725,12 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- END PRE-FOOTER -->
 <!-- BEGIN FOOTER -->
-<div class="page-footer">
-    <div class="container">
-        2014 &copy; Metronic by keenthemes. <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-    </div>
-</div>
 <div class="scroll-to-top">
     <i class="icon-arrow-up"></i>
 </div>
 <!-- END FOOTER -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-<script src="{{asset('assets/AdminPanel/global/plugins/respond.min.js')}}"></script>
-<script src="{{asset('assets/AdminPanel/global/plugins/excanvas.min.js')}}"></script>
-<![endif]-->
 <script src="{{asset('assets/AdminPanel/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/AdminPanel/global/plugins/jquery-migrate.min.js')}}" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
@@ -748,10 +742,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="{{asset('assets/AdminPanel/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/AdminPanel/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
+<script type="text/javascript" src="{{asset('assets/AdminPanel/global/plugins/select2/select2.min.js')}}"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{asset('assets/AdminPanel/global/scripts/metronic.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/AdminPanel/admin/layout3/scripts/layout.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/AdminPanel/admin/layout3/scripts/demo.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/form-samples.js')}}"></script>
+<script src="{{asset('assets/AdminPanel/admin/pages/scripts/timeline.js')}}" type="text/javascript"></script>
+
 @yield('pageJS')
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -760,9 +758,8 @@ License: You must have a valid license purchased only from themeforest(the above
         Metronic.init(); // init metronic core components
         Layout.init(); // init current layout
         Demo.init(); // init demo features
-        $("#draggable").draggable({
-            handle: ".modal-header"
-        });
+        FormSamples.init();
+        Timeline.init(); // init timeline page
     });
 </script>
 <!-- END JAVASCRIPTS -->

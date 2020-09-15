@@ -76,7 +76,7 @@
                     $('#ErrorMessage').text(data.ErrorMessage);
                 }else {
                     debugger
-                    window.location.href = "home";
+                    window.location.href = "/";
                 }
             },
             error: function (data) {

@@ -20,8 +20,6 @@ class BanksController extends Controller
     {
         $response =  FlightsConnectionManager::SaveObjectWithPics("Bank",$request) ;
 
-        $Data = $response->getBody() ;
-
         return $response->getBody();
     }
 

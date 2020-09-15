@@ -14,7 +14,8 @@
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "guzzlehttp/guzzle": "^7.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-http": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
